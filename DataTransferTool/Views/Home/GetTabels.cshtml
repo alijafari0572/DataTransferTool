@@ -1,0 +1,50 @@
+﻿@model SharedModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<body>
+    <div class="text-center">
+        <h1 class="display-4">فرم ورود رشته‌های اتصال به دیتابیس</h1>
+    </div>
+    <form asp-action="Selectfields" asp-controller="Home" method="post">
+        <div class="col-12">
+            <label class="col-3" for="sourceConnectionString">رشته اتصال به دیتابیس مبدا:</label>
+            <input class="col-9" asp-for="@Model.SourceConnectionString" type="text" id="sourceConnectionString" name="sourceConnectionString" value="@ViewBag.sourceConnectionString">
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="destinationConnectionString">رشته اتصال به دیتابیس مقصد:</label>
+            <input class="col-9" asp-for="@Model.DestinationConnectionString" type="text" id="destinationConnectionString" name="destinationConnectionString" value="@ViewBag.DestinationConnectionString">
+        </div>
+
+        <div class="col-12">
+            <label class="col-3" for="sourceConnectionString">جدول های دیتابیس مبدا:</label>
+            <select asp-for=SourceTables name="SourceTables" id="SourceTables">
+                @foreach (var item in ViewBag.SourceTables)
+                {
+                    <option value="@item.TableName">@item.TableName</option>
+                }
+
+            </select>
+
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="destinationConnectionString">جدول های دیتابیس مقصد:</label>
+           
+            <select asp-for="DestinationTables" name="DestinationTables" id="DestinationTables">
+                @foreach (var item in ViewBag.DestinationTables)
+                {
+                    <option value="@item.TableName">@item.TableName</option>
+                }
+
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="ارسال">
+        </div>
+    </form>
+</body>
+

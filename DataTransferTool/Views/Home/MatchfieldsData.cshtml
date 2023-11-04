@@ -1,0 +1,104 @@
+﻿@model Selectfields
+
+@{
+    ViewData["Title"] = "Home Page";
+    var count1=1;
+    var count2=1;
+}
+
+
+
+<body>
+    <div class="text-center">
+        <h1 class="display-4">فرم ورود رشته‌های اتصال به دیتابیس</h1>
+    </div>
+    <form asp-action="ShowfieldsData" asp-controller="Home" method="post">
+        <div class="col-12">
+            <label class="col-3" for="sourceConnectionString">رشته اتصال به دیتابیس مبدا:</label>
+            <input class="col-9" asp-for="@Model.SourceConnectionString" type="text" id="sourceConnectionString" name="sourceConnectionString" value="@ViewBag.sourceConnectionString">
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="destinationConnectionString">رشته اتصال به دیتابیس مقصد:</label>
+            <input class="col-9" asp-for="@Model.DestinationConnectionString" type="text" id="destinationConnectionString" name="destinationConnectionString" value="@ViewBag.DestinationConnectionString">
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="SourceTable">جدول دیتابیس مبدا:</label>
+            <input class="col-9" asp-for="@Model.SourceTable" type="text" id="SourceTable" name="SourceTable" value="@ViewBag.SourceTable">
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="DestinationTable">جدول دیتابیس مقصد:</label>
+            <input class="col-9" asp-for="@Model.DestinationTable" type="text" id="DestinationTable" name="DestinationTable" value="@ViewBag.DistinationTable">
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="sourceConnectionString">فیلدهای جدول های دیتابیس مبدا(فیلد مشترک):</label>
+            <input class="col-9" asp-for="@Model.CommonfieldSourceTable" type="text" id="CommonfieldSourceTable" name="CommonfieldSourceTable" value="@ViewBag.fieldcommonName">
+
+
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="sourceConnectionString">فیلدهای جدول های دیتابیس مبدا(فیلد هدف):</label>
+            <input class="col-9" asp-for="@Model.TargetfieldSourceTable" type="text" id="TargetfieldSourceTable" name="TargetfieldSourceTable" value="@ViewBag.fieldtargetName">
+
+        </div>
+        <div>
+            <input type="submit" value="ارسال">
+        </div>
+        <div class="row">
+            <div class="col-7">
+                <h2>جدول مبدا</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>@ViewBag.fieldcommonName</td>
+                            <td>@ViewBag.fieldtargetName</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.TableData)
+                        {
+                            <tr>
+                                <td>@count1</td>
+                                <td>@item.Item1</td>
+                                <td>@item.Item2</td>
+                            </tr>
+                            count1++;
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-5">
+                <h2>جدول مقصد</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>@ViewBag.CommonfieldDestinationTable</td>
+                            <td>@ViewBag.TargetfieldDestinationTable</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.MatchedData)
+                        {
+                            <tr>
+                                <td>@count2</td>
+                                <td>@item.Item1</td>
+                                <td>@item.Item2</td>
+                            </tr>
+                            count2++;
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+        <div>
+            <input type="submit" value="ارسال">
+        </div>
+    </form>
+</body>
+

@@ -1,0 +1,27 @@
+﻿@model ConnectionStringsViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<body>
+    <div class="text-center">
+        <h1 class="display-4">فرم ورود رشته‌های اتصال به دیتابیس</h1>
+    </div>
+    <form asp-action="GetTabels" asp-controller="Home" method="post">
+        <div class="col-12">
+            <label class="col-3" for="sourceConnectionString">رشته اتصال به دیتابیس مبدا:</label>
+            <input class="col-9" asp-for="@Model.SourceConnectionString" type="text" id="sourceConnectionString" name="sourceConnectionString">
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="destinationConnectionString">رشته اتصال به دیتابیس مقصد:</label>
+            <input class="col-9"  asp-for="@Model.DestinationConnectionString" type="text" id="destinationConnectionString" name="destinationConnectionString">
+        </div>
+        <div>
+            <input type="submit" value="ارسال">
+        </div>
+    </form>
+</body>
+

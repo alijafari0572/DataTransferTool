@@ -1,0 +1,14 @@
+<add name="MyConnectionString" connectionString="Data Source=shopayubi.ir;Initial Catalog=shopayub_db;user id=shopayub_db;password=t3Fo6~3k;MultipleActiveResultSets=true" providerName="System.Data.SqlClient" />
+<add name="webcomco_1Entities" connectionString="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=shopayubi.ir;initial catalog=shopayub_db;user id=shopayub_db;password=t3Fo6~3k;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+
+
+
+
+"AutomationConnectionString": "Data Source=.; Initial Catalog=shopayub_db; Trusted_Connection=True;"
+
+ "AutomationConnectionString": Data Source=DESKTOP-06PFR03\\MSSQL16;Initial Catalog=shopayub_db;user id=shopayub_db;password=t3Fo6~3k;Integrated Security=true;
+"AutomationConnectionString": Data Source=DESKTOP-06PFR03\\MSSQL16;Initial Catalog=shopayub_db1;Trusted_Connection=True;
+ "Server": "Server=.;Initial Catalog=holoopak_holoopakdasht;Integrated Security=true;",
+
+
+Data Source=DESKTOP-06PFR03\MSSQL16;Initial Catalog=shopayub_db;user id=shopayub_db;password=t3Fo6~3k;Integrated Security=true;

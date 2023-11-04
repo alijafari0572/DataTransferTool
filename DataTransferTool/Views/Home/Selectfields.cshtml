@@ -1,0 +1,82 @@
+﻿@model Selectfields
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<body>
+    <div class="text-center">
+        <h1 class="display-4">فرم ورود رشته‌های اتصال به دیتابیس</h1>
+    </div>
+    <form asp-action="ShowfieldsData" asp-controller="Home" method="post">
+        <div class="col-12">
+            <label class="col-3" for="sourceConnectionString">رشته اتصال به دیتابیس مبدا:</label>
+            <input class="col-9" asp-for="@Model.SourceConnectionString" type="text" id="sourceConnectionString" name="sourceConnectionString" value="@ViewBag.sourceConnectionString">
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="destinationConnectionString">رشته اتصال به دیتابیس مقصد:</label>
+            <input class="col-9" asp-for="@Model.DestinationConnectionString" type="text" id="destinationConnectionString" name="destinationConnectionString" value="@ViewBag.DestinationConnectionString">
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="SourceTable">جدول دیتابیس مبدا:</label>
+            <input class="col-9" asp-for="@Model.SourceTable" type="text" id="SourceTable" name="SourceTable" value="@ViewBag.SourceTables">
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="DestinationTable">جدول دیتابیس مقصد:</label>
+            <input class="col-9" asp-for="@Model.DestinationTable" type="text" id="DestinationTable" name="DestinationTable" value="@ViewBag.DistinationTables">
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="sourceConnectionString">فیلدهای جدول های دیتابیس مبدا(فیلد مشترک):</label>
+            <select asp-for=CommonfieldSourceTable name="CommonfieldSourceTable" id="CommonfieldSourceTable">
+                @foreach (var item in ViewBag.sourceTableFields)
+                {
+                    <option value="@item.FieldName">@item.FieldName</option>
+                }
+
+            </select>
+
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="sourceConnectionString">فیلدهای جدول های دیتابیس مبدا(فیلد هدف):</label>
+            <select asp-for=TargetfieldSourceTable name="TargetfieldSourceTable" id="TargetfieldSourceTable">
+                @foreach (var item in ViewBag.sourceTableFields)
+                {
+                    <option value="@item.FieldName">@item.FieldName</option>
+                }
+
+            </select>
+
+        </div>
+
+
+
+        <div class="col-12">
+            <label class="col-3" for="sourceConnectionString">فیلدهای جدول های دیتابیس مقصد(فیلد مشترک):</label>
+            <select asp-for=CommonfieldDestinationTable name="CommonfieldDestinationTable" id="CommonfieldDestinationTable">
+                @foreach (var item in ViewBag.distinationtableFields)
+                {
+                    <option value="@item.FieldName">@item.FieldName</option>
+                }
+
+            </select>
+
+        </div>
+        <div class="col-12">
+            <label class="col-3" for="sourceConnectionString">فیلدهای جدول های دیتابیس مقصد(فیلد هدف):</label>
+            <select asp-for=TargetfieldDestinationTable name="TargetfieldDestinationTable" id="TargetfieldDestinationTable">
+                @foreach (var item in ViewBag.distinationtableFields)
+                {
+                    <option value="@item.FieldName">@item.FieldName</option>
+                }
+
+            </select>
+
+        </div>
+        <div>
+            <input type="submit" value="ارسال">
+        </div>
+    </form>
+</body>
+
