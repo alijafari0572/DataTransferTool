@@ -263,8 +263,8 @@ namespace DataTransferTool.Controllers
                     while (dataReader.Read())
                     {
                         // خواندن اطلاعات از دو فیلد و اضافه کردن به لیست
-                        string fieldcommonValue = dataReader[fieldcommonName].ToString();
-                        string fieldtargetValue = dataReader[fieldtargetName].ToString();
+                        string fieldcommonValue = dataReader[CommonfieldDestinationTable].ToString();
+                        string fieldtargetValue = dataReader[TargetfieldDestinationTable].ToString();
                         tableData2.Add(new Tuple<string, string>(fieldcommonValue, fieldtargetValue));
                     }
                 }
@@ -343,8 +343,8 @@ namespace DataTransferTool.Controllers
                     while (dataReader.Read())
                     {
                         // خواندن اطلاعات از دو فیلد و اضافه کردن به لیست
-                        string fieldcommonValue = dataReader[fieldcommonName].ToString();
-                        string fieldtargetValue = dataReader[fieldtargetName].ToString();
+                        string fieldcommonValue = dataReader[CommonfieldDestinationTable].ToString();
+                        string fieldtargetValue = dataReader[TargetfieldDestinationTable].ToString();
                         tableData2.Add(new Tuple<string, string>(fieldcommonValue, fieldtargetValue));
                     }
                 }
